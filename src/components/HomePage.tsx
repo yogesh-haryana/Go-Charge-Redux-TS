@@ -1,6 +1,6 @@
 import useStyles from "./homePageStyles";
 import car from "../assets/car.jpg";
-import { NavLink } from "react-router-dom"
+// import { NavLink } from "react-router-dom"
 
 const HomePage = () => {
   const classes = useStyles();
