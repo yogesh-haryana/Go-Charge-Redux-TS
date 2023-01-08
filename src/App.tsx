@@ -1,11 +1,17 @@
 import "./App.css";
+import HomePage from "./components/HomePage";
+import SearchBar from "./components/SearchBar";
+import StationsInfo from "./components/StationsInfo";
+import AppContext from "./contexts/searchContext";
 
 function App() {
-  let a = 70;
-  console.log(a);
   return (
     <div className="App">
-      <h1>Go Charge</h1>
+      <AppContext>
+        <HomePage />
+        <SearchBar />
+        <StationsInfo />
+      </AppContext>
     </div>
   );
 }
