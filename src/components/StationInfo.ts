@@ -4,19 +4,18 @@ const useStyles = makeStyles({
   stationsHolder: {
     display: "flex",
     marginTop: "50px",
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
     
   },
   stationClass: {
-    width: "45%",
+    margin: "0 auto",
+    width: "60%",
     border: "1px solid black",
     borderRadius: "6px",
-    textAlign: "left",
-    padding: "20px",
     marginTop: "30px",
-
+    display: "flex",
   },
   address: {
 
@@ -26,6 +25,19 @@ const useStyles = makeStyles({
     fontWeight: "700",
 
 
+  },
+  logoContainer: {
+    writingMode: "vertical-lr",
+    width: "30%",
+    "& img": {
+      height: "100px",
+      width: "120px",
+    },
+  },
+  stationDetails: {
+    width: "70%",
+    textAlign: "left",
+    padding: "20px",
   },
 });
 

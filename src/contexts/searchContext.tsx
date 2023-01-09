@@ -1,11 +1,45 @@
-import React, { createContext, useState } from "react";
+import { ObjectId } from "mongodb";
+import { createContext, useState } from "react";
 
-export const searchContext = createContext();
+interface Station {
+  _id: ObjectId
+  stationName: string;
+  address: string;
+  location: {
+    lat: number;
+    lang: number;
+  };
+  ratesPerHour: Number;
+  connectorTypes: Array<string>;
 
-const AppContext = ({ children }) => {
+}
+
+export interface SearchContextType {
+  inputValue: string;
+  setInputValue: (inputValue: string) => void;
+  stationsData: Station[];
+  setStationsData: (stationsData: Station[]) => void;
+  filtered: Station[];
+  setFiltered: (filtered: Station[]) => void;
+}
+export const searchContext = createContext<SearchContextType>({
+  inputValue: "",
+  setInputValue: () => {},
+  stationsData: [],
+  setStationsData: () => {},
+  filtered: [],
+  setFiltered: () => {},
+});
+
+interface Props {
+  children: React.ReactNode;
+}
+
+const AppContext: React.FC<Props> = ({ children }) => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [stationsData, setStationsData] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+  const [stationsData, setStationsData] = useState<Station[]>([]);
+  const [filtered, setFiltered] = useState<Station[]>([]);
+
 
   return (
     <searchContext.Provider

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { searchContext } from "../contexts/searchContext";
 import useStyles from "./StationInfo";
+import Logo from "../assets/logoHead.png";
 
 const StationsInfo = () => {
   const classes = useStyles();
@@ -37,9 +38,11 @@ const StationsInfo = () => {
 
   return (
     <div className={classes.stationsHolder}>
-      {filtered.map((item) => {
+      {filtered.map((item, i) => {
         return (
-          <div className={classes.stationClass} key={item._id}>
+          <div className={classes.stationClass} key={i}>
+            <div className={classes.logoContainer}><img  src={Logo} alt="logo"></img></div>
+            <div className={classes.stationDetails}>
             <p className={classes.stationName}>{item.stationName}</p>
             <p>
             distance :{" "}
@@ -52,6 +55,7 @@ const StationsInfo = () => {
           </p>
           <p className={classes.address}>Address - {item.address}</p>
           <p>Charging Rate Rs. {item.ratesPerHour} /hr.</p>
+          </div>
           </div>
         )
       })}

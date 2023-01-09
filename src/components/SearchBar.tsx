@@ -3,6 +3,8 @@ import axios from "axios";
 import { useContext, useEffect } from "react";
 import { searchContext } from "../contexts/searchContext";
 import SearchIcon from "@mui/icons-material/Search";
+import Header from "./Header";
+
 
 const SearchBar = () => {
   const classes = useStyles();
@@ -26,7 +28,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     getStationsData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const searchStation = () => {
@@ -36,12 +38,14 @@ const SearchBar = () => {
           return item;
         }
       }
+      // return item;
     });
     setFiltered(fltrData);
   };
 
   return (
     <div>
+      <Header />
       <p className={classes.heading}>Search a charging station for Your Electric Vehicle</p>
       <div className={classes.searchBarContainer}>
       <input
@@ -52,7 +56,7 @@ const SearchBar = () => {
         value={inputValue}
       ></input>
       <button
-      type="button"
+      type="submit"
         className={classes.searchButton}
         onClick={searchStation}
       >

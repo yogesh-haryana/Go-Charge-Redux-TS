@@ -1,18 +1,13 @@
 import useStyles from "./homePageStyles";
 import Station from "../assets/Station.png";
-import Logo from "../assets/logoHead.png";
 import PageLinking from "./PageLinking";
+import Header from "./Header";
 
 const HomePage = (): JSX.Element => {
   const classes = useStyles();
   return (
     <div className={classes.homePage}>
-      <div className={classes.headerDiv}>
-        <div className={classes.header}>
-          <img src={Logo} alt="logo"></img>
-          <span>Go Charge</span>
-        </div>
-      </div>
+      <Header />
       <div className={classes.firstContainer}>
         <div className={classes.applicationInfo}>
           <p className={classes.paraGraph}>
