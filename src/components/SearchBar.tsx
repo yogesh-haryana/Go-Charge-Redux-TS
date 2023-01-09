@@ -2,7 +2,7 @@ import useStyles from "./searchBarStyles";
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { searchContext } from "../contexts/searchContext";
-import { Button, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const SearchBar = () => {
   const classes = useStyles();
@@ -42,22 +42,25 @@ const SearchBar = () => {
 
   return (
     <div>
-      <TextField
+      <p className={classes.heading}>Search a charging station for Your Electric Vehicle</p>
+      <div className={classes.searchBarContainer}>
+      <input
         className={classes.searchBar}
         type="text"
-        variant="outlined"
-        label="Go Charge"
+        placeholder="connector type..."
         onChange={(e) => handleChange(e)}
         value={inputValue}
-      ></TextField>
-      <Button
-        variant="contained"
+      ></input>
+      <button
+      type="button"
         className={classes.searchButton}
         onClick={searchStation}
       >
-        Search
-      </Button>
+        <SearchIcon />
+      </button>
+      </div>
     </div>
   );
 };
+
 export default SearchBar;

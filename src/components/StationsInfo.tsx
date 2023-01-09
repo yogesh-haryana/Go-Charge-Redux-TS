@@ -9,7 +9,7 @@ const StationsInfo = () => {
     long: 77.313712,
   };
 
-  const { inputValue, stationsData, filtered } = useContext(searchContext);
+  const { filtered } = useContext(searchContext);
 
   function calculateDistance(
     lat1: number,
