@@ -1,7 +1,7 @@
 import Logo from "../assets/logoHead.png";
 import useStyles from "./HeaderStyles";
 
-const Header = () => {
+const Header: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.headerDiv}>

@@ -3,7 +3,7 @@ import Station from "../assets/Station.png";
 import PageLinking from "./PageLinking";
 import Header from "./Header";
 
-const HomePage = (): JSX.Element => {
+const HomePage: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.homePage}>

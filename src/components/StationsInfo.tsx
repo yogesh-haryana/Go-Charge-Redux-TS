@@ -3,16 +3,16 @@ import { searchContext } from "../contexts/searchContext";
 import useStyles from "./StationInfo";
 import Logo from "../assets/logoHead.png";
 
-const StationsInfo = () => {
+const StationsInfo: React.FC = () => {
   const classes = useStyles();
-  const myLoc = {
+  const myLoc = {  // my location
     lat: 28.588265,
     long: 77.313712,
   };
 
   const { filtered } = useContext(searchContext);
 
-  function calculateDistance(
+  function calculateDistance(  //function to calulate distance between geo locations
     lat1: number,
     lon1: number,
     lat2: number,

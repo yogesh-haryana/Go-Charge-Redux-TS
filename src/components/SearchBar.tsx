@@ -8,7 +8,7 @@ import Header from "./Header";
 
 const SearchBar = () => {
   const classes = useStyles();
-  const {
+  const {                             // receiving context values
     inputValue,
     setInputValue,
     stationsData,
@@ -32,6 +32,7 @@ const SearchBar = () => {
   }, []);
 
   const searchStation = () => {
+    // eslint-disable-next-line array-callback-return
     const fltrData = stationsData.filter((item) => {
       for (let i = 0; i < item.connectorTypes.length; i++) {
         if (inputValue.trim() === item.connectorTypes[i]) {
