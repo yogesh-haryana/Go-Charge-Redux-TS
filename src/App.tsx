@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import SearchBar from "./components/SearchBar";
 import StationsInfo from "./components/StationsInfo";
 import AppContext from "./contexts/searchContext";
+import FallBack from "./components/FallBack";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 </>
               }
             ></Route>
+            <Route path="/*" element={<FallBack />}></Route>
           </Routes>
         </AppContext>
       </Router>

@@ -5,10 +5,10 @@ import { searchContext } from "../contexts/searchContext";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
 
-
 const SearchBar = () => {
   const classes = useStyles();
-  const {                             // receiving context values
+  const {
+    // receiving context values
     inputValue,
     setInputValue,
     stationsData,
@@ -34,11 +34,11 @@ const SearchBar = () => {
     } else {
       setFilterStatus(true);
     }
-  }
+  };
 
   useEffect(() => {
     getStationsData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const searchStation = () => {
@@ -47,34 +47,41 @@ const SearchBar = () => {
       for (let i = 0; i < item.connectorTypes.length; i++) {
         if (inputValue.trim() === item.connectorTypes[i]) {
           return item;
-        } 
+        }
       }
       // return item;
     });
     setFiltered(fltrData);
     IsDataAvailable();
-    
   };
+
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    searchStation();
+    e.preventDefault();
+  }
 
   return (
     <div>
       <Header />
-      <p className={classes.heading}>Search a charging station for Your Electric Vehicle</p>
+      <p className={classes.heading}>
+        Search a charging station for Your Electric Vehicle
+      </p>
       <div className={classes.searchBarContainer}>
-      <input
-        className={classes.searchBar}
-        type="text"
-        placeholder="connector type..."
-        onChange={(e) => handleChange(e)}
-        value={inputValue}
-      ></input>
-      <button
-      type="submit"
-        className={classes.searchButton}
-        onClick={searchStation}
-      >
-        <SearchIcon />
-      </button>
+        <form onSubmit={(e)=>onFormSubmit(e)}>
+          <input
+            className={classes.searchBar}
+            type="text"
+            placeholder="connector type..."
+            onChange={(e) => handleChange(e)}
+            value={inputValue}
+          ></input>
+          <button
+            type="submit"
+            className={classes.searchButton}
+          >
+            <SearchIcon />
+          </button>
+        </form>
       </div>
     </div>
   );

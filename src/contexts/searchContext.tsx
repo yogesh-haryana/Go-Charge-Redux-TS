@@ -1,8 +1,6 @@
-import { ObjectId } from "mongodb";
 import { createContext, useState } from "react";
 
 interface Station {
-  _id: ObjectId;
   stationName: string;
   address: string;
   location: {

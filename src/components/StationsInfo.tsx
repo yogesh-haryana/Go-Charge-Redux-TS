@@ -49,9 +49,10 @@ const StationsInfo: React.FC = () => {
 
   return (
     <div className={classes.stationsHolder}>
-      { filterStatus ?
-        filtered.map((item, i) => {
-          return (
+      {
+      //  filterStatus ?
+         filtered.map((item, i) => {
+           return (
           <div className={classes.stationClass} key={i}>
             <div className={classes.logoContainer}>
               <img src={Logo} alt="logo"></img>
@@ -72,8 +73,9 @@ const StationsInfo: React.FC = () => {
               <p>Charging Rate - Rs. {item?.ratesPerHour} /hr.</p>
             </div>
           </div>
-          )
-        }) : <p>Please Search with a different KeyWord.</p>
+           )
+         })
+        //  : <p>Please Search with a different KeyWord.</p>
       }
     </div>
   );
