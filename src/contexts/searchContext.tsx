@@ -11,6 +11,7 @@ interface Station {
   };
   ratesPerHour: Number;
   connectorTypes: Array<string>;
+  distance: number;
 
 }
 
