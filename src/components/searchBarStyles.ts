@@ -19,7 +19,6 @@ const useStyles = makeStyles({
     width: "25%",
     borderRight: "0",
     "&:focus-visible": {
-      // border: "none",
       borderLeft: "2px solid blue",
       outline: "0",
     },

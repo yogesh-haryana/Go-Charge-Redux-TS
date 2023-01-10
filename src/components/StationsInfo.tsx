@@ -37,20 +37,10 @@ const StationsInfo: React.FC = () => {
     return distance;
   }
 
-  // const compareByDistance = (lat1:number, lon1:number, lat2:number, lon2:number) => {
-  //   filtered.forEach(element => {
-  //     element.distance = calculateDistance(lat1, lon1, lat2, lon2);
-  //     return element;
-  //   });
-
-  //   filtered.sort((a, b)=> a.distance - b.distance);
-  //   return filtered;
-  // };
-
   return (
     <div className={classes.stationsHolder}>
       {
-       filterStatus ?
+      //  filterStatus ?
          filtered.map((item, i) => {
            return (
           <div className={classes.stationClass} key={i}>
@@ -75,7 +65,7 @@ const StationsInfo: React.FC = () => {
           </div>
            )
          })
-         : <p>Please Search with a different KeyWord.</p>
+        //  : <p>Please Search with a different KeyWord.</p>
       }
     </div>
   );
