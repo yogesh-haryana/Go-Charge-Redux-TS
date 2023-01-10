@@ -50,7 +50,7 @@ const StationsInfo: React.FC = () => {
   return (
     <div className={classes.stationsHolder}>
       {
-      //  filterStatus ?
+       filterStatus ?
          filtered.map((item, i) => {
            return (
           <div className={classes.stationClass} key={i}>
@@ -75,7 +75,7 @@ const StationsInfo: React.FC = () => {
           </div>
            )
          })
-        //  : <p>Please Search with a different KeyWord.</p>
+         : <p>Please Search with a different KeyWord.</p>
       }
     </div>
   );

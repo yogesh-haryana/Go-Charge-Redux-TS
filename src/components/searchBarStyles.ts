@@ -8,6 +8,9 @@ const useStyles = makeStyles({
   },
   searchBarContainer: {
     marginTop: "50px",
+    "input:focus": {
+      borderBottom: "2px solid blue",
+    },
   },
   searchBar: {
     height: "37px",
@@ -15,8 +18,10 @@ const useStyles = makeStyles({
     border: "1px solid blue",
     width: "25%",
     borderRight: "0",
-    "&: focused": {
-      border: "2px solid blue",
+    "&:focus-visible": {
+      // border: "none",
+      borderLeft: "2px solid blue",
+      outline: "0",
     },
 
   },
@@ -28,6 +33,10 @@ const useStyles = makeStyles({
     verticalAlign: "bottom",
     width: "40px",
     cursor: "pointer",
+    "& path": {
+      fillRule: "nonzero",
+      color: "blue",
+    },
   },
 });
 
