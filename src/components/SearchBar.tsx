@@ -13,7 +13,9 @@ const SearchBar = () => {
     setInputValue,
     stationsData,
     setStationsData,
+    filtered,
     setFiltered,
+    setFilterStatus,
   } = useContext(searchContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +28,14 @@ const SearchBar = () => {
     console.log(data);
   };
 
+  const IsDataAvailable = () => {
+    if (!filtered.length) {
+      setFilterStatus(false);
+    } else {
+      setFilterStatus(true);
+    }
+  }
+
   useEffect(() => {
     getStationsData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,11 +47,13 @@ const SearchBar = () => {
       for (let i = 0; i < item.connectorTypes.length; i++) {
         if (inputValue.trim() === item.connectorTypes[i]) {
           return item;
-        }
+        } 
       }
       // return item;
     });
     setFiltered(fltrData);
+    IsDataAvailable();
+    
   };
 
   return (

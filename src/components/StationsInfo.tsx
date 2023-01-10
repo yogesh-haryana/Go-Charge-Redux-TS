@@ -11,7 +11,7 @@ const StationsInfo: React.FC = () => {
     long: 77.313712,
   };
 
-  const { filtered } = useContext(searchContext);
+  const { filtered, filterStatus } = useContext(searchContext);
 
   function calculateDistance( //function to calulate distance between geo locations
     lat1: number,
@@ -49,30 +49,32 @@ const StationsInfo: React.FC = () => {
 
   return (
     <div className={classes.stationsHolder}>
-      {filtered.map((item, i) => {
-        return (
+      { filterStatus ?
+        filtered.map((item, i) => {
+          return (
           <div className={classes.stationClass} key={i}>
             <div className={classes.logoContainer}>
               <img src={Logo} alt="logo"></img>
             </div>
             <div className={classes.stationDetails}>
-              <p className={classes.stationName}>{item.stationName}</p>
+              <p className={classes.stationName}>{item?.stationName}</p>
               <p>
-                distance :
+                distance - 
                 {calculateDistance(
                   myLoc.lat,
                   myLoc.long,
-                  item.location.lat,
-                  item.location.lang,
+                  item?.location?.lat,
+                  item?.location?.lang,
                 )}{" "}
                 kms.
               </p>
-              <p className={classes.address}>Address - {item.address}</p>
-              <p>Charging Rate Rs. {item.ratesPerHour} /hr.</p>
+              <p className={classes.address}>Address - {item?.address}</p>
+              <p>Charging Rate - Rs. {item?.ratesPerHour} /hr.</p>
             </div>
           </div>
-        );
-      })}
+          )
+        }) : <p>Please Search with a different KeyWord.</p>
+      }
     </div>
   );
 };
