@@ -70,7 +70,7 @@ const StationsInfo: React.FC = () => {
                 kms.
               </p>
               <p className={classes.address}>Address - {item?.address}</p>
-              <p>Charging Rate - Rs. {item?.ratesPerHour} /hr.</p>
+              <p><>Charging Rate - Rs. {item?.ratesPerHour} /hr.</></p>
             </div>
           </div>
            )
