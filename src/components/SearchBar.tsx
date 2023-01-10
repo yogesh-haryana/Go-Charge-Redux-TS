@@ -1,9 +1,10 @@
 import useStyles from "./searchBarStyles";
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { searchContext } from "../contexts/searchContext";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
+// import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const classes = useStyles();
@@ -11,48 +12,20 @@ const SearchBar = () => {
     // receiving context values
     inputValue,
     setInputValue,
-    stationsData,
     setStationsData,
-    filtered,
-    setFiltered,
-    setFilterStatus,
   } = useContext(searchContext);
+  // const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-  const getStationsData = async () => {
-    const resp = await axios.get("http://localhost:7000/");
+
+  const searchStation = async () => {
+    const resp = await axios.get(`http://localhost:7000/${inputValue}`);
     const { data } = resp;
     setStationsData(data);
     console.log(data);
-  };
 
-  const IsDataAvailable = () => {
-    if (!filtered.length) {
-      setFilterStatus(false);
-    } else {
-      setFilterStatus(true);
-    }
-  };
-
-  useEffect(() => {
-    getStationsData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const searchStation = () => {
-    // eslint-disable-next-line array-callback-return
-    const fltrData = stationsData.filter((item) => {
-      for (let i = 0; i < item.connectorTypes.length; i++) {
-        if (inputValue.trim() === item.connectorTypes[i]) {
-          return item;
-        }
-      }
-      // return item;
-    });
-    setFiltered(fltrData);
-    IsDataAvailable();
   };
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {

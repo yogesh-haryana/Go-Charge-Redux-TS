@@ -11,7 +11,7 @@ const StationsInfo: React.FC = () => {
     long: 77.313712,
   };
 
-  const { filtered, filterStatus } = useContext(searchContext);
+  const { stationsData } = useContext(searchContext);
 
   function calculateDistance( //function to calulate distance between geo locations
     lat1: number,
@@ -40,8 +40,8 @@ const StationsInfo: React.FC = () => {
   return (
     <div className={classes.stationsHolder}>
       {
-      //  filterStatus ?
-         filtered.map((item, i) => {
+      //  stationsData.length ?
+         stationsData.map((item, i) => {
            return (
           <div className={classes.stationClass} key={i}>
             <div className={classes.logoContainer}>
