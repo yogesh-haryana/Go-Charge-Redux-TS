@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# Go-Charge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description:
+
+ Go-Charge is an web application made of using JavaScript's very popular library React - Js with TypeScript.It has a HomePage which has some information about what application is about and what it can do to help you.It also has a second page that is routed from HomePage, containing a input box which requires for a connector type of an electric vehicle charger. Application search for electric vehicle charging station around out by filtering out according to your query. It show their useful information like Station Name, it's address, distance from your current location and charging rates to help you to react out to them.
+
+
+## Technology Used :
+
+- React JS : JavaScript's library React.js is used to develop the application.
+- Type Script : To make application more secure and type strict.
+- JavaScript : JavaScript's basics and some advanced concepts like API calling, Error Handling is used in the application.
+- JSX : JavaScript XML is used to structure the page and using Different UI components inside React.js.
+- Matrial CSS : MUI makeStyle is used to style the page and make it more attractive and user's eye comfortable.
+- Redux : Redux Library is used to managing state for entire application.
+- React Router - React Router is used to communicate between different pages.
+
+## What I've Learnt :
+
+I have Learnt :
+
+- About APIs, getting data with query params.
+- Filtereing Data according to our need.
+- Mapping of Data.
+
+## _Setup Project_
+
+Get a clone of application from [Here](https://github.com/yogesh-haryana/Go-Charge-Redux-TS.git)
 
 ## Available Scripts
 
@@ -8,39 +33,34 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload when you make changes.
+You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the file names include the hashes.
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to run - Screenshots Tutorial
 
-### `npm run eject`
+Homepage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Home Page](src/assets/HomePage.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Search Bar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Search Bar](src/assets/SearchBar.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Stations Information
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Stations Information](src/assets/stations.png)
