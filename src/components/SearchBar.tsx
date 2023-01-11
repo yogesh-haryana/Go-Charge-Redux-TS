@@ -1,35 +1,30 @@
 import useStyles from "./searchBarStyles";
 import axios from "axios";
-import { useContext } from "react";
-import { searchContext } from "../contexts/searchContext";
+import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
-// import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { searchStation } from "../redux/actions/action";
 
 const SearchBar = () => {
   const classes = useStyles();
-  const {
-    // receiving context values
-    inputValue,
-    setInputValue,
-    setStationsData,
-  } = useContext(searchContext);
-  // const navigate = useNavigate();
+  const [inputValue, setInputValue,] = useState("");
+  const stationsData = useSelector((state)=> state);
+  const dispatch = useDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const searchStation = async () => {
+  const fetchData = async () => {
     const resp = await axios.get(`http://localhost:7000/${inputValue}`);
     const { data } = resp;
-    setStationsData(data);
+    dispatch(searchStation(data));
     console.log(data);
-
   };
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    searchStation();
+    fetchData();
     e.preventDefault();
   }
 
