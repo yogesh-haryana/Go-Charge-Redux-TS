@@ -14,6 +14,7 @@ export interface StationObject {
 }
 
 export interface StateType  {
+  [x: string]: any;
   stationsData: StationObject[],
 }
 
