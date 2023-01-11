@@ -3,13 +3,12 @@ import axios from "axios";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchStation } from "../redux/actions/action";
 
 const SearchBar = () => {
   const classes = useStyles();
-  const [inputValue, setInputValue,] = useState("");
-  const stationsData = useSelector((state)=> state);
+  const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

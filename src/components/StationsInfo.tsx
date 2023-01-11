@@ -17,7 +17,7 @@ const StationsInfo: React.FC = () => {
     lat1: number,
     lon1: number,
     lat2: number,
-    lon2: number
+    lon2: number,
   ) {
     const R = 6371000; // radius of Earth in meters
     const latOneInRadian = (lat1 * Math.PI) / 180; // latitude in radians
@@ -53,7 +53,7 @@ const StationsInfo: React.FC = () => {
                   myLoc.lat,
                   myLoc.long,
                   item?.location?.lat,
-                  item?.location?.lang
+                  item?.location?.lang,
                 )}{" "}
                 kms.
               </p>
