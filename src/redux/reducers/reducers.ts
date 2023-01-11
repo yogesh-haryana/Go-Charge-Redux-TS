@@ -14,6 +14,7 @@ export interface StationObject {
 }
 
 export interface StateType  {
+  // eslint-disable-next-line
   [x: string]: any;
   stationsData: StationObject[],
 }
@@ -21,11 +22,6 @@ export interface StateType  {
 const initialState: StateType = {
   stationsData: [],
 }
-
-// interface ActionType {
-//   type: string,
-//   payload: StateType,
-// }
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
 export default function GetStations(state = initialState, action: AnyAction) {
