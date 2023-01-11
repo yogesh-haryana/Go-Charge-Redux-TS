@@ -1,6 +1,7 @@
 import useStyles from "./StationInfo";
 import Logo from "../assets/logoHead.png";
 import { useSelector } from "react-redux";
+import { StateType, StationObject } from "../redux/reducers/reducers";
 
 const StationsInfo: React.FC = () => {
   const classes = useStyles();
@@ -11,7 +12,7 @@ const StationsInfo: React.FC = () => {
   };
 
   //   getting data from the store
-  const stationsData = useSelector((state) => state.GetStations.stationsData);
+  const stationsData = useSelector((state: StateType) => state.GetStations.stationsData);
 
   function calculateDistance( //function to calulate distance between geo locations
     lat1: number,
@@ -39,7 +40,7 @@ const StationsInfo: React.FC = () => {
 
   return (
     <div className={classes.stationsHolder}>
-      {stationsData.map((item, i) => {
+      {stationsData.map((item: StationObject, i:number) => {
         return (
           <div className={classes.stationClass} key={i}>
             <div className={classes.logoContainer}>
