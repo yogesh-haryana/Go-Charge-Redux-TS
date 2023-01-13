@@ -24,8 +24,8 @@ const SearchBar = () => {
 
   const postSearchHistory = async () => {
     const data = { searchQuery: inputValue };
-    const resp = await axios.post(`http://localhost:7000/api/allStations/${inputValue}`, data);
-    console.log(resp);
+    const resp = await axios.post("http://localhost:7000/api/allStations/history", data);
+    console.log("post data is ", resp);
 
   }
 

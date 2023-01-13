@@ -10,7 +10,7 @@ const StationsInfo: React.FC = () => {
     lat: 28.588265,
     long: 77.313712,
   };
-  debugger;
+  
   //   getting data from the store
   const stationsData = useSelector((state: StateType) => state.GetStations.stationsData);
 
