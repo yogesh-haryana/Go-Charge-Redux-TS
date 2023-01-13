@@ -12,6 +12,9 @@ const Header: React.FC = () => {
         </Link>
         <span>Go Charge</span>
       </div>
+      <div className={[classes.header, classes.history].join(" ")}>
+        <Link to="/searchHistory">History</Link>
+      </div>
     </div>
   );
 };
