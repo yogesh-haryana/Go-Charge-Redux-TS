@@ -2,12 +2,13 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   mainDiv: {
-    "& div": {
-      width: "75%",
-      margin: "0 auto",
-      marginTop: "100px",
+    margin: "0 auto",
+    width: "80%",
+    marginTop: "70px",
+    "& p": {
+      fontSize: "18px",
+      textAlign: "left",
     },
-
   },
   tableContainer: {
     "& table": {
@@ -34,6 +35,29 @@ const useStyles = makeStyles({
       },
     },
     
+  },
+  buttonsContainer: {
+    width: "80%",
+    margin: "10px auto 50px auto",
+    "& div": {
+      width: "12%",
+      marginLeft: "auto",
+      display: "flex",
+      justifyContent: "space-around",
+      "& button": {
+        border: "none",
+        background: "none",
+        cursor: "pointer",
+        "& svg": {
+          height: "15px",
+          width: "15px",
+        },
+        "& path": {
+          fillRule: "evenodd",
+          color: "blue",
+        },
+      },
+    },
   },
 });
 

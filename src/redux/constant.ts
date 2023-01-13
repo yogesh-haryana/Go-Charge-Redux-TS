@@ -1,1 +1,2 @@
 export const SEARCH_STATION = "SEARCH_STATION";
+export const CHANGE_PAGE = "CHANGE_PAGE";
