@@ -16,14 +16,22 @@ const SearchBar = () => {
   };
 
   const fetchData = async () => {
-    const resp = await axios.get(`http://localhost:7000/${inputValue}`);
+    const resp = await axios.get(`http://localhost:7000/api/allStations/${inputValue}`);
     const { data } = resp;
     dispatch(searchStation(data));
     console.log(data);
   };
 
+  const postSearchHistory = async () => {
+    const data = { searchQuery: inputValue };
+    const resp = await axios.post(`http://localhost:7000/api/allStations/${inputValue}`, data);
+    console.log(resp);
+
+  }
+
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     fetchData();
+    postSearchHistory();
     e.preventDefault();
   }
 
