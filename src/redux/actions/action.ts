@@ -8,7 +8,7 @@ export const searchStation = (payload: StateType) => {
   }
 }
 
-export const changePageNumber = (payload: StateType) => {
+export const changePageNumber = (payload: number) => {
   return {
     type: CHANGE_PAGE,
     payload: payload,
