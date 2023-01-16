@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     width: "25%",
     fontSize: "1.8rem",
     fontWeight: "600",
-    margin: "30px 0 0 5%",
+    margin: "15px 0 0 2%",
     lineHeight: "50px",
     "& img": {
       height: "50px",

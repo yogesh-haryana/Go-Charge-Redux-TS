@@ -3,11 +3,37 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   mainDiv: {
     margin: "0 auto",
-    width: "80%",
-    marginTop: "70px",
+    width: "77.5%",
+    marginTop: "20px",
     "& p": {
       fontSize: "18px",
       textAlign: "left",
+    },
+  },
+  headerDiv: {
+    display:"flex",
+    justifyContent: "space-between",
+  },
+  header: {
+    width: "25%",
+    fontSize: "1.8rem",
+    fontWeight: "600",
+    margin: "15px 0 0 2%",
+    lineHeight: "50px",
+    "& img": {
+      height: "50px",
+      width: "60px",
+      verticalAlign: "bottom",      
+    },
+  },
+  history: {
+    "& button": {
+      fontSize: "22px",
+      fontWeight: "400",
+      background: "none",
+      border: "none",
+      textDecoration : "underline",
+      color: "blueviolet",
     },
   },
   tableContainer: {
@@ -38,7 +64,7 @@ const useStyles = makeStyles({
   },
   buttonsContainer: {
     width: "80%",
-    margin: "10px auto 50px auto",
+    margin: "10px auto 10px auto",
     "& div": {
       width: "12%",
       marginLeft: "auto",

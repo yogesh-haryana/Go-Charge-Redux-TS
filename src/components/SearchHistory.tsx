@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Header from "./Header";
 import { useSelector, useDispatch } from "react-redux";
 import useStyles from "./SearchHistoryStyles";
 import { changePageNumber } from "../redux/actions/action";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/logoHead.png";
 import {
   Table,
   TableBody,
@@ -26,6 +27,7 @@ const SearchHistory = () => {
   const [history, setHistory] = useState<HistoryObj[]>([]);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const pageNumber = useSelector(
     (state: StateType) => state.GetStations.pageNumber,
   );
@@ -47,9 +49,19 @@ const SearchHistory = () => {
 
   return (
     <div>
-      <Header />
+       <div className={classes.headerDiv}>
+      <div className={classes.header}>
+        <Link to="/">
+          <img src={Logo} alt="logo"></img>
+        </Link>
+        <span>Go Charge</span>
+      </div>
+      <div className={[classes.header, classes.history].join(" ")}>
+        <button onClick={()=>navigate(-1)}>Back</button>
+      </div>
+    </div>
       <div className={classes.mainDiv}>
-      <p>Recent queries...</p>
+      <p>Recent queries</p>
         <TableContainer className={classes.tableContainer} component={Paper}>
           <Table>
             <TableHead>

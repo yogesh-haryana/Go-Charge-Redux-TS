@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   paraGraph: {
     textAlign: "left",
     fontSize: "16px",
-    padding: "0 20px 0 60px",
+    paddingLeft: "130px",
     "& span": {
       fontSize: "22px",
     },
