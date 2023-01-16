@@ -1,18 +1,18 @@
 import useStyles from "./searchBarStyles";
 import axios from "axios";
-import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
-import { useDispatch } from "react-redux";
-import { searchStation } from "../redux/actions/action";
+import { useDispatch, useSelector } from "react-redux";
+import { searchStation, chnageInputValue } from "../redux/actions/action";
+import { StateType } from "../redux/reducers/reducers";
 
 const SearchBar = () => {
   const classes = useStyles();
-  const [inputValue, setInputValue] = useState("");
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const inputValue = useSelector((state: StateType)=> state.GetStations.inputValue)
+    
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    dispatch(chnageInputValue(e.target.value));
   };
 
   const fetchData = async () => {
@@ -23,11 +23,12 @@ const SearchBar = () => {
   };
 
   const postSearchHistory = async () => {
-    const data = { searchQuery: inputValue };
+    const data = { searchQuery: inputValue }
     const resp = await axios.post("http://localhost:7000/api/allStations/history", data);
     console.log("post data is ", resp);
 
   }
+
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     fetchData();

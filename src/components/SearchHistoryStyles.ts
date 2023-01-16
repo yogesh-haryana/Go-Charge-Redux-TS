@@ -36,6 +36,9 @@ const useStyles = makeStyles({
       color: "blueviolet",
     },
   },
+  selectType: {
+
+  },
   tableContainer: {
     "& table": {
       "& thead": {

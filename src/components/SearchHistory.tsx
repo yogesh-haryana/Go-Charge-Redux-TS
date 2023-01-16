@@ -2,7 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import useStyles from "./SearchHistoryStyles";
-import { changePageNumber } from "../redux/actions/action";
+import {
+  changePageNumber,
+  changeDate,
+  selectConnector,
+  selectEntries,
+} from "../redux/actions/action";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/logoHead.png";
 import {
@@ -23,45 +28,63 @@ interface HistoryObj {
   atDate: string;
 }
 
+type HTMLtype = React.ChangeEvent<HTMLSelectElement>;
+
 const SearchHistory = () => {
   const [history, setHistory] = useState<HistoryObj[]>([]);
   const classes = useStyles();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const pageNumber = useSelector(
-    (state: StateType) => state.GetStations.pageNumber,
+  const { pageNumber, connector, date, entries } = useSelector(
+    (state: StateType) => state.GetStations,
   );
-  console.log(pageNumber);
 
-  const getSearchHistory = async () => {
-    const resp = await axios.get(
-      `http://localhost:7000/api/allStations/history/${pageNumber}`,
-    );
+  const filterSearchHistory = () => {
+    const apiURL = `http://localhost:7000/api/allStations/history/?searchQuery=${connector}&atDate=${date}&entries=${entries}&page=${pageNumber}`;
+    getSearchHistory(apiURL);
+  };
+
+  const getSearchHistory = async (url: string) => {
+    const resp = await axios.get(url);
     const { data } = resp;
     setHistory(data);
-    console.log("my history data is ", data);
   };
 
   useEffect(() => {
-    getSearchHistory();
-    //   eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber]);
+    filterSearchHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNumber, connector, date, entries]);
 
   return (
     <div>
-       <div className={classes.headerDiv}>
-      <div className={classes.header}>
-        <Link to="/">
-          <img src={Logo} alt="logo"></img>
-        </Link>
-        <span>Go Charge</span>
+      <div className={classes.headerDiv}>
+        <div className={classes.header}>
+          <Link to="/">
+            <img src={Logo} alt="logo"></img>
+          </Link>
+          <span>Go Charge</span>
+        </div>
+        <div className={[classes.header, classes.history].join(" ")}>
+          <button onClick={() => navigate(-1)}>Back</button>
+        </div>
       </div>
-      <div className={[classes.header, classes.history].join(" ")}>
-        <button onClick={()=>navigate(-1)}>Back</button>
-      </div>
-    </div>
       <div className={classes.mainDiv}>
-      <p>Recent queries</p>
+        <p>Recent queries</p>
+        <select
+          className={classes.selectType}
+          value={connector}
+          onChange={(e: HTMLtype) => dispatch(selectConnector(e.target.value))}
+        >
+          <option value="">select</option>
+          <option value="5-pins">5-pins</option>
+          <option value="7-pins">7-pins</option>
+          <option value="12-pins">12-pins</option>
+        </select>
+          <input
+            type="text"
+            value={date}
+            onChange={(e) => dispatch(changeDate(e.target.value))}
+          ></input>
         <TableContainer className={classes.tableContainer} component={Paper}>
           <Table>
             <TableHead>
@@ -84,6 +107,18 @@ const SearchHistory = () => {
         </TableContainer>
       </div>
       <div className={classes.buttonsContainer}>
+        <div>
+        <select
+          className={classes.selectType}
+          value={entries}
+          onChange={(e: HTMLtype) => dispatch(selectEntries(Number(e.target.value)))}
+        >
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={15}>15</option>
+          <option value={20}>20</option>
+        </select>
+        </div>
         <div>
           <button
             onClick={() => {
