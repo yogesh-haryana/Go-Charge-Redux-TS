@@ -69,22 +69,31 @@ const SearchHistory = () => {
         </div>
       </div>
       <div className={classes.mainDiv}>
-        <p>Recent queries</p>
-        <select
-          className={classes.selectType}
-          value={connector}
-          onChange={(e: HTMLtype) => dispatch(selectConnector(e.target.value))}
-        >
-          <option value="">select</option>
-          <option value="5-pins">5-pins</option>
-          <option value="7-pins">7-pins</option>
-          <option value="12-pins">12-pins</option>
-        </select>
+        <div className={classes.aboveTable}>
+        <div className={classes.recent}>
+          <p>Recent queries</p>
+        </div>
+        <div className={classes.filtersDiv}>Filter By
+          connector :<select
+            value={connector}
+            onChange={(e: HTMLtype) =>
+              dispatch(selectConnector(e.target.value))
+            }
+          >
+            <option value="">select</option>
+            <option value="5-pins">5-pins</option>
+            <option value="7-pins">7-pins</option>
+            <option value="12-pins">12-pins</option>
+          </select>
+          By Date:
           <input
             type="text"
             value={date}
+            placeholder="13-1-23"
             onChange={(e) => dispatch(changeDate(e.target.value))}
           ></input>
+        </div>
+        </div>
         <TableContainer className={classes.tableContainer} component={Paper}>
           <Table>
             <TableHead>
@@ -107,19 +116,20 @@ const SearchHistory = () => {
         </TableContainer>
       </div>
       <div className={classes.buttonsContainer}>
-        <div>
-        <select
-          className={classes.selectType}
-          value={entries}
-          onChange={(e: HTMLtype) => dispatch(selectEntries(Number(e.target.value)))}
-        >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={15}>15</option>
-          <option value={20}>20</option>
-        </select>
+        <div className={classes.entries}>
+          Showing <select
+            value={entries}
+            onChange={(e: HTMLtype) =>
+              dispatch(selectEntries(Number(e.target.value)))
+            }
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
+          </select> entries
         </div>
-        <div>
+        <div className={classes.buttonHolder}>
           <button
             onClick={() => {
               dispatch(changePageNumber(-1));

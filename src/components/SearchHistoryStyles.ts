@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
   },
   headerDiv: {
-    display:"flex",
+    display: "flex",
     justifyContent: "space-between",
   },
   header: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     "& img": {
       height: "50px",
       width: "60px",
-      verticalAlign: "bottom",      
+      verticalAlign: "bottom",
     },
   },
   history: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
       fontWeight: "400",
       background: "none",
       border: "none",
-      textDecoration : "underline",
+      textDecoration: "underline",
       color: "blueviolet",
     },
   },
@@ -63,30 +63,69 @@ const useStyles = makeStyles({
 
       },
     },
-    
+
   },
   buttonsContainer: {
+    display: "flex",
     width: "80%",
     margin: "10px auto 10px auto",
-    "& div": {
-      width: "12%",
-      marginLeft: "auto",
-      display: "flex",
-      justifyContent: "space-around",
-      "& button": {
-        border: "none",
-        background: "none",
-        cursor: "pointer",
-        "& svg": {
-          height: "15px",
-          width: "15px",
-        },
-        "& path": {
-          fillRule: "evenodd",
-          color: "blue",
-        },
+    justifyContent: "space-between",
+  },
+
+  entries: {
+    width: "30%",
+    textAlign: "left",
+    "& select": {
+      width: "20%",
+    },
+  },
+  buttonHolder: {
+    width: "12%",
+    marginLeft: "auto",
+    display: "flex",
+    justifyContent: "space-around",
+    "& button": {
+      border: "none",
+      background: "none",
+      cursor: "pointer",
+      "& svg": {
+        height: "15px",
+        width: "15px",
+      },
+      "& path": {
+        fillRule: "evenodd",
+        color: "blue",
       },
     },
+  },
+
+  aboveTable: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  recent: {
+    width: "40%",
+    "& p": {
+      fontWeight: "600",
+    },
+  },
+  filtersDiv: {
+    width: "60%",
+    display: "flex",
+    justifyContent: "space-between",
+    lineHeight: "4",
+    "& select": {
+      marginTop: "22px",
+      width: "20%",
+      height: "22px",
+    },
+    "& input": {
+      marginTop: "22px",
+      width: "30%",
+      height: "17px",
+
+    },
+
   },
 });
 
