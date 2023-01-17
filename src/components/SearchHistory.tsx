@@ -89,7 +89,7 @@ const SearchHistory = () => {
           <input
             type="text"
             value={date}
-            placeholder="13-1-23"
+            placeholder="dd-mm-yyyy"
             onChange={(e) => dispatch(changeDate(e.target.value))}
           ></input>
         </div>
@@ -103,14 +103,14 @@ const SearchHistory = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {history.map((elem: HistoryObj, i: number) => {
+              { history.length ? history.map((elem: HistoryObj, i: number) => {
                 return (
                   <TableRow key={i}>
                     <TableCell>{elem.searchQuery}</TableCell>
                     <TableCell>{elem.atDate}</TableCell>
                   </TableRow>
-                );
-              })}
+                )
+              })  : <p>No Matching Results</p>}
             </TableBody>
           </Table>
         </TableContainer>
