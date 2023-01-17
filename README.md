@@ -19,7 +19,8 @@
 
 I have Learnt :
 
-- About APIs, getting data with query params.
+- About APIs, getting data with query and params.
+- Redux and React-Redux for State Management.
 - Filtereing Data according to our need.
 - Mapping of Data.
 
@@ -55,7 +56,7 @@ Your app is ready to be deployed!
 
 Homepage
 
-![Home Page](src/assets/HomePage.png)
+![Home Page](src/assets/HomePageNew.png)
 
 Search Bar
 
@@ -63,4 +64,8 @@ Search Bar
 
 Stations Information
 
-![Stations Information](src/assets/stations.png)
+![Stations Information](src/assets/StationsNew.png)
+
+History Page
+
+![History](src/assets/HistoryPage.png)
