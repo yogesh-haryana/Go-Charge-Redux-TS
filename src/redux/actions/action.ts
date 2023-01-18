@@ -1,4 +1,4 @@
-import { SEARCH_STATION, CHANGE_PAGE, SELECT_CONNECTOR, CHANGE_DATE, CHANGE_INPUT, SELECT_ENTRIES } from "../constant";
+import { SEARCH_STATION, CHANGE_PAGE, SELECT_CONNECTOR, CHANGE_DATE, CHANGE_INPUT, SELECT_ENTRIES, SET_LODER } from "../constant";
 import { StateType } from "../reducers/reducers";
 
 export const searchStation = (payload: StateType) => {
@@ -39,6 +39,13 @@ export const changeDate = (payload: string) => {
 export const selectEntries = (payload: number) => {
   return {
     type: SELECT_ENTRIES,
+    payload: payload,
+  }
+}
+
+export const setStationLoder = (payload: boolean) => {
+  return {
+    type: SET_LODER,
     payload: payload,
   }
 }

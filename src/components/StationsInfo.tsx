@@ -2,6 +2,7 @@ import useStyles from "./StationInfo";
 import Logo from "../assets/logoHead.png";
 import { useSelector } from "react-redux";
 import { StateType, StationObject } from "../redux/reducers/reducers";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const StationsInfo: React.FC = () => {
   const classes = useStyles();
@@ -13,7 +14,7 @@ const StationsInfo: React.FC = () => {
   };
   
   //   getting data from the store
-  const stationsData = useSelector((state: StateType) => state.GetStations.stationsData);
+  const { stationsData, isStationsLoading } = useSelector((state: StateType) => state.GetStations);
   
   function calculateDistance( //function to calulate distance between geo locations
     lat1: number,
@@ -41,7 +42,7 @@ const StationsInfo: React.FC = () => {
 
   return (
     <div className={classes.stationsHolder}>
-      {stationsData.map((item: StationObject, i:number) => {
+      { !isStationsLoading && (stationsData.length > 0) && stationsData.map((item: StationObject, i:number) => {
         return (
           <div className={classes.stationClass} key={i}>
             <div className={classes.logoContainer}>
@@ -67,6 +68,8 @@ const StationsInfo: React.FC = () => {
           </div>
         );
       })}
+      { !isStationsLoading && stationsData.length === 0 && <span>No Matching Results Available</span>}
+      { isStationsLoading && <ClipLoader color="#61876E" size={50} /> }
     </div>
   );
 };

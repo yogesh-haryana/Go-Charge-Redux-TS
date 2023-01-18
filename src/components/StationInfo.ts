@@ -2,6 +2,10 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   stationsHolder: {
+    "& span": {
+      display: "block",
+      margin: "10px auto",
+    },
     display: "flex",
     marginTop: "50px",
     flexDirection: "column",

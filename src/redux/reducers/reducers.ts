@@ -1,4 +1,4 @@
-import { SEARCH_STATION, CHANGE_PAGE, SELECT_CONNECTOR, CHANGE_DATE, CHANGE_INPUT, SELECT_ENTRIES } from "../constant";
+import { SEARCH_STATION, CHANGE_PAGE, SELECT_CONNECTOR, CHANGE_DATE, CHANGE_INPUT, SELECT_ENTRIES, SET_LODER } from "../constant";
 import { AnyAction } from "redux";
 
 
@@ -21,6 +21,7 @@ export interface StateType {
   date: string,
   connector: string,
   entries: number,
+  isStationsLoading: boolean,
 }
 
 const initialState: StateType = {
@@ -30,6 +31,7 @@ const initialState: StateType = {
   date: "",
   connector: "",
   entries: 5,
+  isStationsLoading: false,
 }
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
@@ -71,6 +73,13 @@ export default function GetStations(state = initialState, action: AnyAction) {
         entries: action.payload,
 
       }  
+
+    case SET_LODER:
+      return {
+        ...state,
+        isStationsLoading: action.payload,
+        
+      }
 
     default:
       return state;
