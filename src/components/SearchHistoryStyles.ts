@@ -40,6 +40,10 @@ const useStyles = makeStyles({
 
   },
   tableContainer: {
+    minHeight: "100px",
+    "& span": {
+      lineHeight: "100px",
+    },
     "& table": {
       "& thead": {
         backgroundColor: "#61876E",
@@ -126,6 +130,8 @@ const useStyles = makeStyles({
 
     },
 
+  },
+  loader: {
   },
 });
 

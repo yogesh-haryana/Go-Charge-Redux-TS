@@ -20,7 +20,9 @@ import {
   Paper,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import PulseLoader from "react-spinners/PulseLoader";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 import { StateType } from "../redux/reducers/reducers";
 
 interface HistoryObj {
@@ -32,6 +34,7 @@ type HTMLtype = React.ChangeEvent<HTMLSelectElement>;
 
 const SearchHistory = () => {
   const [history, setHistory] = useState<HistoryObj[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const classes = useStyles();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,14 +43,18 @@ const SearchHistory = () => {
   );
 
   const filterSearchHistory = () => {
+    setLoading(true);
     const apiURL = `http://localhost:7000/api/allStations/history/?searchQuery=${connector}&atDate=${date}&entries=${entries}&page=${pageNumber}`;
-    getSearchHistory(apiURL);
+    setTimeout(() => {
+      getSearchHistory(apiURL);
+    }, 500);
   };
 
   const getSearchHistory = async (url: string) => {
     const resp = await axios.get(url);
     const { data } = resp;
     setHistory(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -70,54 +77,60 @@ const SearchHistory = () => {
       </div>
       <div className={classes.mainDiv}>
         <div className={classes.aboveTable}>
-        <div className={classes.recent}>
-          <p>Recent queries</p>
-        </div>
-        <div className={classes.filtersDiv}>Filter By
-          connector :<select
-            value={connector}
-            onChange={(e: HTMLtype) =>
-              dispatch(selectConnector(e.target.value))
-            }
-          >
-            <option value="">select</option>
-            <option value="5-pins">5-pins</option>
-            <option value="7-pins">7-pins</option>
-            <option value="12-pins">12-pins</option>
-          </select>
-          By Date:
-          <input
-            type="text"
-            value={date}
-            placeholder="dd-mm-yyyy"
-            onChange={(e) => dispatch(changeDate(e.target.value))}
-          ></input>
-        </div>
+          <div className={classes.recent}>
+            <p>Recent queries</p>
+          </div>
+          <div className={classes.filtersDiv}>
+            Filter By connector :
+            <select
+              value={connector}
+              onChange={(e: HTMLtype) =>
+                dispatch(selectConnector(e.target.value))
+              }
+            >
+              <option value="">select</option>
+              <option value="5-pins">5-pins</option>
+              <option value="7-pins">7-pins</option>
+              <option value="12-pins">12-pins</option>
+            </select>
+            By Date:
+            <input
+              type="text"
+              value={date}
+              placeholder="dd-mm-yyyy"
+              onChange={(e) => dispatch(changeDate(e.target.value))}
+            ></input>
+          </div>
         </div>
         <TableContainer className={classes.tableContainer} component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Connector Type</TableCell>
-                <TableCell>Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              { history.length ? history.map((elem: HistoryObj, i: number) => {
-                return (
-                  <TableRow key={i}>
-                    <TableCell>{elem.searchQuery}</TableCell>
-                    <TableCell>{elem.atDate}</TableCell>
-                  </TableRow>
-                )
-              })  : <p>No Matching Results</p>}
-            </TableBody>
-          </Table>
+          {!isLoading && history.length > 0  && (
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Connector Type</TableCell>
+                  <TableCell>Date</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {history.map((elem: HistoryObj, i: number) => {
+                  return (
+                    <TableRow key={i}>
+                      <TableCell>{elem.searchQuery}</TableCell>
+                      <TableCell>{elem.atDate}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          )}
+          {!isLoading && history.length === 0 && <span>No Matching Results</span>}
+          {isLoading && <PulseLoader className={classes.loader} color="#61876E" />}
         </TableContainer>
       </div>
       <div className={classes.buttonsContainer}>
         <div className={classes.entries}>
-          Showing <select
+          Showing{" "}
+          <select
             value={entries}
             onChange={(e: HTMLtype) =>
               dispatch(selectEntries(Number(e.target.value)))
@@ -127,7 +140,8 @@ const SearchHistory = () => {
             <option value={10}>10</option>
             <option value={15}>15</option>
             <option value={20}>20</option>
-          </select> entries
+          </select>{" "}
+          entries
         </div>
         <div className={classes.buttonHolder}>
           <button

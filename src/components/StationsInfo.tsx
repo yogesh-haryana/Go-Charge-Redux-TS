@@ -5,6 +5,7 @@ import { StateType, StationObject } from "../redux/reducers/reducers";
 
 const StationsInfo: React.FC = () => {
   const classes = useStyles();
+
   const myLoc = {
     // my location
     lat: 28.588265,
@@ -13,7 +14,7 @@ const StationsInfo: React.FC = () => {
   
   //   getting data from the store
   const stationsData = useSelector((state: StateType) => state.GetStations.stationsData);
-
+  
   function calculateDistance( //function to calulate distance between geo locations
     lat1: number,
     lon1: number,
