@@ -14,6 +14,10 @@
 - Matrial CSS : MUI makeStyle is used to style the page and make it more attractive and user's eye comfortable.
 - Redux : Redux Library is used to managing state for entire application.
 - React Router - React Router is used to communicate between different pages.
+- Node JS : Node Js is used to create backend runtime environment and connectivity to database.
+- Express JS : Express Js is used to provide routes to various APIs with various controllers.
+- MongoDB : MongoDB is used as primary database.
+- Moongoose : Mongoose is used to create and manage secure data in mongoDB Collections.
 
 ## What I've Learnt :
 
@@ -23,12 +27,31 @@ I have Learnt :
 - Redux and React-Redux for State Management.
 - Filtereing Data according to our need.
 - Mapping of Data.
+- Creating basic API and operating CRUD on them.
+- Creating cloud database and connectivity.
+- Creating different routes, controllers and middlewares.
 
 ## _Setup Project_
 
-Get a clone of application from [Here](https://github.com/yogesh-haryana/Go-Charge-Redux-TS.git)
+This application needs its back-end server active before running the application.
+
+Get a clone of the back-end environment from [here](https://github.com/yogesh-haryana/GoCharge-Backend.git)
+
+Get a clone of front-end application from [Here](https://github.com/yogesh-haryana/Go-Charge-Redux-TS.git)
 
 ## Available Scripts
+
+### For Backend 
+
+- Go to the root directory
+### `cd src`
+
+- Start the server
+### `node app.js`
+
+Server is now started on [http://localhost:7000](http://localhost:7000)
+
+### For Application 
 
 In the project directory, you can run:
 
