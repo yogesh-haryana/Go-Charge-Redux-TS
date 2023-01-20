@@ -3,7 +3,7 @@ import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { searchStation, chnageInputValue, setStationLoder } from "../redux/actions/action";
+import { searchStation, chnageInputValue, setStationLoder, updateMessage } from "../redux/actions/action";
 import { StateType } from "../redux/reducers/reducers";
 
 const SearchBar = () => {
@@ -16,16 +16,16 @@ const SearchBar = () => {
   };
 
   const fetchData = async () => {
-    const resp = await axios.get(`http://localhost:7000/api/allStations/${inputValue}`);
+    const resp = await axios.get(`https://gocharge.onrender.com/api/allStations/${inputValue}`);
     const { data } = resp;
     dispatch(searchStation(data));
     dispatch(setStationLoder(false));
-    console.log(data);
+    dispatch(updateMessage("No Matching Results Available"));
   };
 
   const postSearchHistory = async () => {
     const data = { searchQuery: inputValue }
-    const resp = await axios.post("http://localhost:7000/api/allStations/history", data);
+    const resp = await axios.post("https://gocharge.onrender.com/api/allStations/history", data);
     console.log("post data is ", resp);
   }
 

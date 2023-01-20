@@ -20,7 +20,7 @@ const StationsInfo: React.FC = () => {
   }, [myLangitude, myLangitude]);
  
   //   getting data from the store
-  const { stationsData, isStationsLoading } = useSelector(
+  const { stationsData, isStationsLoading, message } = useSelector(
     (state: StateType) => state.GetStations,
   );
 
@@ -79,7 +79,7 @@ const StationsInfo: React.FC = () => {
           );
         })}
       {!isStationsLoading && stationsData.length === 0 && (
-        <span>No Matching Results Available</span>
+        <span>{message}</span>
       )}
       {isStationsLoading && <ClipLoader color="#61876E" size={50} />}
     </div>

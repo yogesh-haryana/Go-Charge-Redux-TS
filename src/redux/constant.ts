@@ -5,3 +5,4 @@ export const CHANGE_DATE = "CHANGE_DATE";
 export const CHANGE_INPUT = "CHANGE_INPUT";
 export const SELECT_ENTRIES = "SELECT_ENTRIES";
 export const SET_LODER = "SET_LODER";
+export const UPDT_MSG = "UPDT_MSG";

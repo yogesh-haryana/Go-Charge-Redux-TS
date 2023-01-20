@@ -44,7 +44,7 @@ const SearchHistory = () => {
 
   const filterSearchHistory = () => {
     setLoading(true);
-    const apiURL = `http://localhost:7000/api/allStations/history/?searchQuery=${connector}&atDate=${date}&entries=${entries}&page=${pageNumber}`;
+    const apiURL = `https://gocharge.onrender.com/api/allStations/history/?searchQuery=${connector}&atDate=${date}&entries=${entries}&page=${pageNumber}`;
     setTimeout(() => {
       getSearchHistory(apiURL);
     }, 500);
