@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Go-Charge-Redux-TS/static/css/main.0d5a0bf0.css",
+    "main.js": "/Go-Charge-Redux-TS/static/js/main.7480b214.js",
+    "static/js/787.c9770c17.chunk.js": "/Go-Charge-Redux-TS/static/js/787.c9770c17.chunk.js",
+    "static/media/logoHead.png": "/Go-Charge-Redux-TS/static/media/logoHead.5eb9e23558fab4319906.png",
+    "static/media/Station.png": "/Go-Charge-Redux-TS/static/media/Station.74cebc207df8f5f49821.png",
+    "index.html": "/Go-Charge-Redux-TS/index.html",
+    "main.0d5a0bf0.css.map": "/Go-Charge-Redux-TS/static/css/main.0d5a0bf0.css.map",
+    "main.7480b214.js.map": "/Go-Charge-Redux-TS/static/js/main.7480b214.js.map",
+    "787.c9770c17.chunk.js.map": "/Go-Charge-Redux-TS/static/js/787.c9770c17.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0d5a0bf0.css",
+    "static/js/main.7480b214.js"
+  ]
+}
